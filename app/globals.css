@@ -1,13 +1,31 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+  /* brand colors */
+  --color-1: #FEFEFE;
+  --color-2: #915EA6;
+  --color-3: #D4B4DC;
+  --color-4: #5E903D;
+  --color-5: #C08BCC;
 
+  /* semantic mapping (this is what Tailwind should use) */
+  --background: var(--color-1);
+  --foreground: #171717;
+
+  --primary: var(--color-2);
+  --secondary: var(--color-5);
+  --accent: var(--color-4);
+  --light: var(--color-3);
+}
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+  --color-light: var(--light);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }

@@ -1,8 +1,17 @@
 import ContactForm from "./components/ContactForm";
+import Header from "./components/Header";
+import HeroSlideshow from "./components/HeroSlideShow";
+import FloatingLogo from "./components/FloatingLogo";
 
 export default function HomePage() {
   return (
+    <>
+      <FloatingLogo />
+      <Header />
+      
+
     <main className="min-h-screen">
+      <HeroSlideshow />
       <section className="px-6 py-24 max-w-6xl mx-auto">
         <p className="text-sm uppercase tracking-wide mb-4">
           Beyond the Coverage
@@ -41,5 +50,6 @@ export default function HomePage() {
         <ContactForm />
       </section>
     </main>
+    </>
   );
 }
