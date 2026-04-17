@@ -117,7 +117,7 @@ export default function Header() {
       <header
         className={`fixed top-0 left-0 right-0 z-40 h-20 transition-all duration-300 ${
           scrolled
-            ? "translate-y-0 opacity-100 border-b bg-background/95 backdrop-blur"
+            ? "translate-y-0 opacity-100 border-b bg-primary backdrop-blur"
             : "-translate-y-full opacity-0"
         }`}
       />

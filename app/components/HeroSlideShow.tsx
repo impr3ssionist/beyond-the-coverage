@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import RotatingWords from "./RotatingWords";
 
 const slides = [
   "/images/boulderflatirons.jpg",
@@ -35,30 +36,39 @@ export default function HeroSlideshow() {
 
       <div className="relative z-10 flex h-full items-center">
         <div className="mx-auto max-w-6xl px-6 text-white">
-          <p className="mb-4 text-sm uppercase tracking-[0.2em]">
-            Beyond the Coverage
-          </p>
-          <h1 className="mb-6 max-w-4xl text-4xl font-bold md:text-6xl">
-            Employee Benefits and Consulting 
+          <div className="max-w-4xl">
+            <p className="mb-6 text-sm uppercase tracking-[0.2em] text-white/90">
+              Beyond the Coverage
+            </p>
 
-          </h1>
-          <p className="mb-8 max-w-2xl text-lg md:text-xl">
-            Personalized help reviewing plans, comparing coverage, and making
-            informed decisions for yourself and your family.
-          </p>
-          <div className="flex flex-col gap-4 sm:flex-row">
-            <a
-              href="#contact"
-              className="rounded-md border border-white px-5 py-3 font-medium text-white"
-            >
-              Get a Free Coverage Review
-            </a>
-            <a
-              href="#services"
-              className="rounded-md bg-white px-5 py-3 font-medium text-black"
-            >
-              View Services
-            </a>
+            <h1 className="text-5xl md:text-7xl font-bold mb-8 leading-tight">
+              <RotatingWords
+                words={['benefits', 'consulting', 'support', 'guidance']}
+                className="text-5xl md:text-7xl"
+              />
+              <br />
+              and Insurance Expertise
+            </h1>
+
+            <p className="mb-10 max-w-2xl text-lg md:text-xl leading-relaxed text-white/95">
+              Personalized help reviewing plans, comparing coverage, and making
+              informed decisions for yourself and your family.
+            </p>
+
+            <div className="flex flex-col gap-4 sm:flex-row sm:gap-6">
+              <a
+                href="#contact"
+                className="inline-flex items-center justify-center rounded-md border-2 border-white px-8 py-4 font-semibold text-white transition-all duration-200 hover:bg-white hover:text-black hover:scale-105"
+              >
+                Get a Free Coverage Review
+              </a>
+              <a
+                href="#services"
+                className="inline-flex items-center justify-center rounded-md bg-white px-8 py-4 font-semibold text-black transition-all duration-200 hover:bg-gray-100 hover:scale-105"
+              >
+                View Services
+              </a>
+            </div>
           </div>
         </div>
       </div>
