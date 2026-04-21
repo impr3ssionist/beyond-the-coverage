@@ -44,7 +44,7 @@ export default function HeroSlideshow() {
       <div className="absolute inset-0 bg-black/45" />
 
       <div className="relative z-10 flex h-full items-center">
-        <div className="mx-auto max-w-6xl px-6 text-white">
+        <div className="mx-auto max-w-6xl px-6 pt-[126px] text-white">
           <div className="max-w-4xl">
             <p className="mb-6 text-sm uppercase tracking-[0.2em] text-white/90">
               Beyond the Coverage

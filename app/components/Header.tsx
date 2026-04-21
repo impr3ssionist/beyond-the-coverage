@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -35,8 +36,31 @@ export default function Header() {
 
   return (
     <>
+      {/* Logo: always visible */}
+      <div className="fixed top-0 left-0 z-50 h-[126px] flex items-center px-6">
+        <a href="/">
+          <Image
+            src="/images/BeyondTC_Logo_White.webp"
+            alt="Beyond the Coverage"
+            width={80}
+            height={80}
+            priority
+            className="h-[95px] w-auto"
+          />
+        </a>
+      </div>
+
+      {/* Scrolled header background: slides in behind logo */}
+      <header
+        className={`fixed top-0 left-0 right-0 z-40 h-[126px] transition-all duration-300 ${
+          scrolled
+            ? "translate-y-0 opacity-100 border-b bg-primary backdrop-blur"
+            : "-translate-y-full opacity-0"
+        }`}
+      />
+
       {/* Desktop nav: always visible */}
-      <div className="fixed top-0 right-0 z-[9999] hidden h-20 items-center px-6 md:flex">
+      <div className="fixed top-0 right-0 z-50 hidden h-[126px] items-center px-6 md:flex">
         <nav className="flex items-center gap-6">
           <a
             href="#services"
@@ -84,7 +108,7 @@ export default function Header() {
       </div>
 
       {/* Mobile hamburger: always visible */}
-      <div className="fixed top-0 right-0 z-[9999] flex h-20 items-center px-6 md:hidden">
+      <div className="fixed top-0 right-0 z-50 flex h-[126px] items-center px-6 md:hidden">
         <button
           type="button"
           className="flex h-12 w-12 items-center justify-center"
@@ -113,19 +137,10 @@ export default function Header() {
         </button>
       </div>
 
-      {/* Scrolled header background only */}
-      <header
-        className={`fixed top-0 left-0 right-0 z-40 h-20 transition-all duration-300 ${
-          scrolled
-            ? "translate-y-0 opacity-100 border-b bg-primary backdrop-blur"
-            : "-translate-y-full opacity-0"
-        }`}
-      />
-
       {/* Full-screen mobile overlay */}
       {menuOpen && (
         <div className="fixed inset-0 z-[10000] bg-background">
-          <div className="flex h-20 items-center justify-end px-6">
+          <div className="flex h-[126px] items-center justify-end px-6">
             <button
               type="button"
               className="flex h-12 w-12 items-center justify-center"
@@ -140,7 +155,7 @@ export default function Header() {
             </button>
           </div>
 
-          <nav className="flex h-[calc(100vh-5rem)] flex-col items-center justify-center gap-8 px-6 text-center">
+          <nav className="flex h-[calc(100vh-126px)] flex-col items-center justify-center gap-8 px-6 text-center">
             <a
               href="#services"
               className="text-3xl font-semibold text-primary"
