@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 export default function FloatingLogo() {
   const [scrolled, setScrolled] = useState(false);
@@ -17,9 +18,12 @@ export default function FloatingLogo() {
   return (
     <div className="fixed top-0 left-0 z-[9999] h-20 flex items-center">
       <a href="/">
-        <img
+        <Image
           src="/images/logo.png"
           alt="Beyond the Coverage"
+          width={80}
+          height={80}
+          priority
           className={`h-20 w-auto transition-all duration-300 ${
             scrolled ? "opacity-100" : "opacity-100 drop-shadow"
           }`}

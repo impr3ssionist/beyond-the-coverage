@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import RotatingWords from "./RotatingWords";
 
 const slides = [
@@ -25,11 +26,19 @@ export default function HeroSlideshow() {
       {slides.map((slide, index) => (
         <div
           key={slide}
-          className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ${
+          className={`absolute inset-0 transition-opacity duration-1000 ${
             index === currentSlide ? "opacity-100" : "opacity-0"
           }`}
-          style={{ backgroundImage: `url(${slide})` }}
-        />
+        >
+          <Image
+            src={slide}
+            alt={`Hero background slide ${index + 1}`}
+            fill
+            priority={index === 0}
+            sizes="100vw"
+            className="object-cover"
+          />
+        </div>
       ))}
 
       <div className="absolute inset-0 bg-black/45" />
@@ -43,7 +52,7 @@ export default function HeroSlideshow() {
 
             <h1 className="text-5xl md:text-7xl font-bold mb-8 leading-tight">
               <RotatingWords
-                words={['benefits', 'consulting', 'support', 'guidance']}
+                words={['Benefits', 'Consulting', 'Support', 'Guidance']}
                 className="text-5xl md:text-7xl"
               />
               <br />
