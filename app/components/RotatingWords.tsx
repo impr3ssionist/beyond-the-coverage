@@ -23,19 +23,50 @@ export default function RotatingWords({
 
   return (
     <span className={`inline-flex gap-3 ${className}`}>
+      <style>{`
+        @keyframes dropIn {
+          0% {
+            opacity: 0;
+            transform: translateY(-40px) scale(0.85);
+          }
+          60% {
+            transform: translateY(8px) scale(1.02);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+          }
+        }
+        
+        @keyframes fadeOut {
+          0% {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+          }
+          100% {
+            opacity: 0;
+            transform: translateY(30px) scale(0.9);
+          }
+        }
+        
+        .rotating-word-enter {
+          animation: dropIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+        
+        .rotating-word-exit {
+          animation: fadeOut 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+      `}</style>
       <span className="inline">Employee</span>
       <span className="inline-block relative min-w-32 text-left">
         {words.map((word, index) => (
           <span
             key={word}
-            className={`absolute left-0 transition-all duration-500 ${
+            className={`absolute left-0 ${
               index === currentIndex
-                ? 'opacity-100'
-                : 'opacity-0 pointer-events-none'
+                ? 'rotating-word-enter pointer-events-auto'
+                : 'rotating-word-exit pointer-events-none'
             }`}
-            style={{
-              transform: index === currentIndex ? 'translateY(0)' : 'translateY(10px)',
-            }}
           >
             {word}
           </span>

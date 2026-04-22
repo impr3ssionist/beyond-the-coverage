@@ -1,0 +1,176 @@
+name: 🚀 Deploy to Production
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Deployment environment'
+        required: true
+        default: 'production'
+  push:
+    tags:
+      - 'v*.*.*'
+
+env:
+  NODE_VERSION: '20.x'
+
+jobs:
+  build-production:
+    name: 🏗️ Build for Production
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+
+      - name: 📦 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: 📚 Install dependencies
+        run: npm ci
+
+      - name: 🔍 Lint code
+        run: npm run lint
+
+      - name: 🧪 Run tests
+        run: npm run test:ci
+        continue-on-error: false
+
+      - name: 🏗️ Build application
+        run: npm run build
+
+      - name: 📊 Verify build
+        run: |
+          if [ ! -d ".next" ]; then
+            echo "❌ Build failed: .next directory not created"
+            exit 1
+          fi
+          echo "✅ Build verified"
+
+      - name: 📤 Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: production-build
+          path: .next/
+          retention-days: 3
+
+  security-scan:
+    name: 🔒 Security Scan
+    needs: build-production
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+
+      - name: 📦 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: 📚 Install dependencies
+        run: npm ci
+
+      - name: 🔍 Audit dependencies
+        run: npm audit --audit-level=moderate
+        continue-on-error: true
+
+  deploy-approval:
+    name: ⏳ Awaiting Approval
+    needs: [build-production, security-scan]
+    runs-on: ubuntu-latest
+    
+    environment:
+      name: production
+      url: https://beyondthecoverage.com
+
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+
+      - name: ✅ Approval confirmed
+        run: |
+          echo "🎉 Production deployment approved!"
+          echo "Deploying to: https://beyondthecoverage.com"
+
+  deploy-production:
+    name: 🌍 Deploy to Production
+    needs: deploy-approval
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+
+      - name: 📥 Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: production-build
+          path: .next/
+
+      - name: 📦 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: 📚 Install dependencies
+        run: npm ci --omit=dev
+
+      - name: 🌍 Deploy to Vercel (Production)
+        uses: vercel/action@v4
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          vercel-args: '--prod'
+          scope: ${{ secrets.VERCEL_ORG_ID }}
+        env:
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.PRODUCTION_SUPABASE_URL }}
+          SUPABASE_SERVICE_KEY: ${{ secrets.PRODUCTION_SUPABASE_SERVICE_KEY }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          NEXT_PUBLIC_APP_URL: 'https://beyondthecoverage.com'
+
+  health-check:
+    name: 💚 Health Check
+    needs: deploy-production
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: 🏥 Verify production deployment
+        run: |
+          echo "Running health checks..."
+          for i in {1..5}; do
+            if curl -f https://beyondthecoverage.com > /dev/null 2>&1; then
+              echo "✅ Health check passed"
+              exit 0
+            fi
+            echo "⏳ Attempt $i/5, waiting..."
+            sleep 10
+          done
+          echo "❌ Health check failed"
+          exit 1
+
+  notify-deployment:
+    name: 📢 Notify Deployment
+    needs: [deploy-production, health-check]
+    runs-on: ubuntu-latest
+    if: always()
+    
+    steps:
+      - name: 🎉 Success notification
+        if: needs.deploy-production.result == 'success' && needs.health-check.result == 'success'
+        run: |
+          echo "🚀 Production deployment successful!"
+          echo "🔗 Live at: https://beyondthecoverage.com"
+          echo "📊 Check: https://vercel.com"
+
+      - name: ❌ Failure notification
+        if: needs.deploy-production.result != 'success' || needs.health-check.result != 'success'
+        run: |
+          echo "❌ Production deployment failed"
+          exit 1

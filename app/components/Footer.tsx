@@ -168,29 +168,3 @@ export default function Footer() {
     </footer>
   );
 }
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M20 10.063C20 4.51 15.523 0 10 0S0 4.51 0 10.063c0 5.025 3.679 9.18 8.472 9.901v-7.02h-2.55V10.06h2.55V7.853c0-2.521 1.5-3.915 3.804-3.915 1.101 0 2.255.196 2.255.196v2.48h-1.27c-1.252 0-1.64.777-1.64 1.576v1.893h2.793l-.446 2.884h-2.347v7.02C16.321 19.243 20 15.088 20 10.063z" />
-                </svg>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        {/* Divider */}
-        <div className="border-t border-gray-700 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-400">
-            <p>&copy; {currentYear} Beyond the Coverage. All rights reserved.</p>
-            <div className="flex gap-6">
-              <a href="/privacy" className="hover:text-primary transition-colors">
-                Privacy Policy
-              </a>
-              <a href="/terms" className="hover:text-primary transition-colors">
-                Terms of Service
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
-  );
-}

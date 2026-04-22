@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getAdminSupabaseClient } from "../../../lib/auth";
+import { getAdminSupabaseClient } from "../../../../lib/auth";
 
 /**
  * Admin login endpoint
