@@ -7,7 +7,6 @@ import RotatingWords from "./RotatingWords";
 const slides = [
   "/images/boulderflatirons.jpg",
   "/images/rockymountains.jpg",
-  "/images/westernco.jpg",
 ];
 
 export default function HeroSlideshow() {
