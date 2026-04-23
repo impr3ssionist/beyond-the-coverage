@@ -209,7 +209,7 @@ export default function HomePage() {
         </section>
 
         {/* TRUST SECTION */}
-        <section id="trust" className="px-6 py-20 max-w-6xl mx-auto bg-gradient-to-b from-light/20 to-accent/10">
+        <section id="trust" className="px-6 py-20 max-w-6xl mx-auto bg-gray-50">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Why Our Clients Trust Us</h2>
             <div className="w-24 h-1 bg-primary mx-auto mb-6"></div>
@@ -270,7 +270,7 @@ export default function HomePage() {
         </section>
 
         {/* CONTACT SECTION */}
-        <section id="contact" className="px-6 py-20 max-w-6xl mx-auto bg-gradient-to-br from-primary/10 via-accent/5 to-secondary/10">
+        <section id="contact" className="px-6 py-20 max-w-6xl mx-auto bg-gray-50">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Get in Touch</h2>
             <div className="w-24 h-1 bg-primary mx-auto mb-6"></div>
