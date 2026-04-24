@@ -5,7 +5,7 @@
     {
       "src": "/(.*)",
       "headers": {
-        "Location": "https://www.beyond-the-coverage.com$1"
+        "Location": "https://www.beyondthecoverage.com$1"
       },
       "status": 301,
       "continue": false
