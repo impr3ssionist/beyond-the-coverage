@@ -47,9 +47,9 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#trust" className="text-gray-400 hover:text-primary transition-all duration-200 inline-flex items-center gap-2 group">
+                <a href="#partners" className="text-gray-400 hover:text-primary transition-all duration-200 inline-flex items-center gap-2 group">
                   <span className="w-1 h-1 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                  Testimonials
+                  Partners
                 </a>
               </li>
               <li>
@@ -108,25 +108,14 @@ export default function Footer() {
                 </svg>
               </a>
               <a
-                href="https://twitter.com"
-                aria-label="Twitter"
+                href="https://instagram.com"
+                aria-label="Instagram"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-12 h-12 rounded-full bg-primary/10 hover:bg-primary hover:scale-110 transition-all duration-300 flex items-center justify-center group border border-primary/20 hover:border-primary"
               >
                 <svg className="w-5 h-5 text-primary group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M18.244 2.478c.646.477.965 1.229.965 2.027 0 .138-.003.277-.01.414.678.498 1.272 1.081 1.777 1.74-1.242-.547-2.58-.916-3.997-1.107 1.694 1.017 2.97 2.614 3.61 4.563-.808-.505-1.693-.884-2.647-1.137 1.192 1.412 1.894 3.233 1.894 5.277 0 4.824-3.92 8.744-8.744 8.744-1.526 0-2.976-.386-4.236-1.069 1.38.167 2.783-.047 4.124-.641-2.322-.715-4.243-2.63-5.3-5.09 1.009.305 2.06.254 3.138-.148-2.506-.77-4.417-3.227-4.417-6.155 0-.028.001-.056.003-.084 1.025.568 2.154.888 3.372.937C2.854 5.86 1.738 3.826 1.738 1.53 1.738.76 1.859.013 2.082.012 4.246 0 6.19 1.124 7.28 2.893 8.39 1.47 9.777.54 11.338.54c1.21 0 2.35.398 3.279 1.069-.208-1.12-.78-2.124-1.569-2.877.789.119 1.56.317 2.306.591z" />
-                </svg>
-              </a>
-              <a
-                href="https://facebook.com"
-                aria-label="Facebook"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-12 h-12 rounded-full bg-primary/10 hover:bg-primary hover:scale-110 transition-all duration-300 flex items-center justify-center group border border-primary/20 hover:border-primary"
-              >
-                <svg className="w-5 h-5 text-primary group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M20 10.063C20 4.51 15.523 0 10 0S0 4.51 0 10.063c0 5.025 3.679 9.18 8.472 9.901v-7.02h-2.55V10.06h2.55V7.853c0-2.521 1.5-3.915 3.804-3.915 1.101 0 2.255.196 2.255.196v2.48h-1.27c-1.252 0-1.64.777-1.64 1.576v1.893h2.793l-.446 2.884h-2.347v7.02C16.321 19.243 20 15.088 20 10.063z" />
+                  <path fillRule="evenodd" d="M10 0C4.477 0 0 4.477 0 10c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.604-3.369-1.341-3.369-1.341-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C17.137 18.163 20 14.418 20 10c0-5.523-4.477-10-10-10z" clipRule="evenodd" />
                 </svg>
               </a>
             </div>
@@ -162,6 +151,9 @@ export default function Footer() {
         <div className="mt-8 pt-8 border-t border-gray-700 text-center">
           <p className="text-xs text-gray-500">
             Designed with care for your insurance peace of mind.
+          </p>
+          <p className="text-xs text-gray-600 mt-2">
+            Built by <span className="text-primary/80">The Human Algorithm</span>
           </p>
         </div>
       </div>
