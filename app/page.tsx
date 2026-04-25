@@ -197,7 +197,7 @@ export default function HomePage() {
               />
               <h3 className="text-xl font-semibold mb-2 text-gray-900">Meet Sammy</h3>
               <p className="text-gray-600 text-sm">
-                With years of dedicated experience in insurance consulting, Sammy is passionate about helping clients navigate complex coverage options with clarity and confidence.
+                With 7+ years of dedicated experience in insurance consulting, Sammy is passionate about helping clients navigate complex coverage options with clarity and confidence.
               </p>
             </div>
           </div>
