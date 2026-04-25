@@ -49,10 +49,10 @@ export default function HeroSlideshow() {
               Beyond the Coverage
             </p>
 
-            <h1 className="text-5xl md:text-7xl font-bold mb-8 leading-tight">
+            <h1 className="text-4xl md:text-7xl font-bold mb-8 leading-tight">
               <RotatingWords
                 words={['Benefits', 'Consulting', 'Support', 'Guidance']}
-                className="text-5xl md:text-7xl"
+                className="text-4xl md:text-7xl"
               />
               <br />
               and Insurance Expertise
