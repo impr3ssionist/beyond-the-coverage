@@ -42,8 +42,10 @@ export async function POST(req: Request) {
       .from("contact_requests")
       .insert({
         full_name: parsed.data.full_name,
+        company_name: parsed.data.company_name || null,
         email: parsed.data.email,
         phone: parsed.data.phone || null,
+        number_of_employees: parsed.data.number_of_employees || null,
         message: parsed.data.message,
         status: "pending",
       })

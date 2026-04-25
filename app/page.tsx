@@ -213,12 +213,18 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-8 items-center">
+          <div className="grid grid-cols-3 md:grid-cols-3 gap-8 items-center">
             {/* Partner 1 - Cigna */}
             <div className="flex items-center justify-center p-4 grayscale hover:grayscale-0 hover:scale-105 transition-all duration-300">
               <div className="text-center">
-                <div className="h-16 w-32 bg-gray-200 rounded-lg flex items-center justify-center mb-2">
-                  <span className="text-lg font-bold text-gray-600">Cigna</span>
+                <div className="h-16 w-40 flex items-center justify-center">
+                  <Image
+                    src="/images/Cigna_Healthcare_Icon_12.png"
+                    alt="Cigna"
+                    width={140}
+                    height={64}
+                    className="w-full h-auto object-contain"
+                  />
                 </div>
               </div>
             </div>
@@ -226,62 +232,29 @@ export default function HomePage() {
             {/* Partner 2 - Kaiser */}
             <div className="flex items-center justify-center p-4 grayscale hover:grayscale-0 hover:scale-105 transition-all duration-300">
               <div className="text-center">
-                <div className="h-16 w-32 bg-gray-200 rounded-lg flex items-center justify-center mb-2">
-                  <span className="text-lg font-bold text-gray-600">Kaiser</span>
+                <div className="h-16 w-40 flex items-center justify-center">
+                  <Image
+                    src="/images/Kaiser_Permanente_id620tjNzS_2.png"
+                    alt="Kaiser Permanente"
+                    width={140}
+                    height={64}
+                    className="w-full h-auto object-contain"
+                  />
                 </div>
               </div>
             </div>
 
-            {/* Partner 3 - Chamber */}
+            {/* Partner 3 - Boulder Chamber */}
             <div className="flex items-center justify-center p-4 grayscale hover:grayscale-0 hover:scale-105 transition-all duration-300">
               <div className="text-center">
-                <div className="h-16 w-32 bg-gray-200 rounded-lg flex items-center justify-center mb-2">
-                  <span className="text-lg font-bold text-gray-600">Chamber</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Partner 4 - Blue Cross */}
-            <div className="flex items-center justify-center p-4 grayscale hover:grayscale-0 hover:scale-105 transition-all duration-300">
-              <div className="text-center">
-                <div className="h-16 w-32 bg-gray-200 rounded-lg flex items-center justify-center mb-2">
-                  <span className="text-lg font-bold text-gray-600">Blue Cross</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Partner 5 - Aetna */}
-            <div className="flex items-center justify-center p-4 grayscale hover:grayscale-0 hover:scale-105 transition-all duration-300">
-              <div className="text-center">
-                <div className="h-16 w-32 bg-gray-200 rounded-lg flex items-center justify-center mb-2">
-                  <span className="text-lg font-bold text-gray-600">Aetna</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Partner 6 - United */}
-            <div className="flex items-center justify-center p-4 grayscale hover:grayscale-0 hover:scale-105 transition-all duration-300">
-              <div className="text-center">
-                <div className="h-16 w-32 bg-gray-200 rounded-lg flex items-center justify-center mb-2">
-                  <span className="text-lg font-bold text-gray-600">United</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Partner 7 - Humana */}
-            <div className="flex items-center justify-center p-4 grayscale hover:grayscale-0 hover:scale-105 transition-all duration-300">
-              <div className="text-center">
-                <div className="h-16 w-32 bg-gray-200 rounded-lg flex items-center justify-center mb-2">
-                  <span className="text-lg font-bold text-gray-600">Humana</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Partner 8 - Anthem */}
-            <div className="flex items-center justify-center p-4 grayscale hover:grayscale-0 hover:scale-105 transition-all duration-300">
-              <div className="text-center">
-                <div className="h-16 w-32 bg-gray-200 rounded-lg flex items-center justify-center mb-2">
-                  <span className="text-lg font-bold text-gray-600">Anthem</span>
+                <div className="h-16 w-40 flex items-center justify-center">
+                  <Image
+                    src="/images/bouldercoclogo.png"
+                    alt="Boulder Chamber of Commerce"
+                    width={140}
+                    height={64}
+                    className="w-full h-auto object-contain"
+                  />
                 </div>
               </div>
             </div>

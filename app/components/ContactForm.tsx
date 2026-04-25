@@ -4,15 +4,19 @@ import { useState } from "react";
 
 type FormState = {
   full_name: string;
+  company_name: string;
   email: string;
   phone: string;
+  number_of_employees: string;
   message: string;
 };
 
 const initialState: FormState = {
   full_name: "",
+  company_name: "",
   email: "",
   phone: "",
+  number_of_employees: "",
   message: "",
 };
 
@@ -66,25 +70,24 @@ export default function ContactForm() {
             placeholder="Full name"
             value={form.full_name}
             onChange={updateField}
-            className="w-full rounded-lg border border-light bg-background p-3 text-gray-900 placeholder:text-gray-500 outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20"
+            className="w-full rounded-lg border border-light bg-white p-3 text-[#915EA6] placeholder:text-gray-500 outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20"
           />
         </div>
 
         <div>
           <label
-            htmlFor="email"
+            htmlFor="company_name"
             className="mb-2 block text-sm font-medium text-gray-900"
           >
-            Email
+            Company name
           </label>
           <input
-            id="email"
-            name="email"
-            type="email"
-            placeholder="Email"
-            value={form.email}
+            id="company_name"
+            name="company_name"
+            placeholder="Company name"
+            value={form.company_name}
             onChange={updateField}
-            className="w-full rounded-lg border border-light bg-background p-3 text-gray-900 placeholder:text-gray-500 outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20"
+            className="w-full rounded-lg border border-light bg-white p-3 text-[#915EA6] placeholder:text-gray-500 outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20"
           />
         </div>
       </div>
@@ -102,8 +105,32 @@ export default function ContactForm() {
           placeholder="Phone"
           value={form.phone}
           onChange={updateField}
-          className="w-full rounded-lg border border-light bg-background p-3 text-gray-900 placeholder:text-gray-500 outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20"
+          className="w-full rounded-lg border border-light bg-white p-3 text-[#915EA6] placeholder:text-gray-500 outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20"
         />
+      </div>
+
+      <div>
+        <label
+          htmlFor="number_of_employees"
+          className="mb-2 block text-sm font-medium text-gray-900"
+        >
+          Number of Employees
+        </label>
+        <select
+          id="number_of_employees"
+          name="number_of_employees"
+          value={form.number_of_employees}
+          onChange={updateField}
+          className="w-full rounded-lg border border-light bg-white p-3 text-[#915EA6] outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20"
+        >
+          <option value="" className="text-gray-900">Select number of employees</option>
+          <option value="1-10" className="text-[#915EA6]">1-10</option>
+          <option value="11-50" className="text-[#915EA6]">11-50</option>
+          <option value="51-100" className="text-[#915EA6]">51-100</option>
+          <option value="101-250" className="text-[#915EA6]">101-250</option>
+          <option value="251-500" className="text-[#915EA6]">251-500</option>
+          <option value="500+" className="text-[#915EA6]">500+</option>
+        </select>
       </div>
 
       <div>
@@ -119,7 +146,7 @@ export default function ContactForm() {
           placeholder="Tell us a little about what you need"
           value={form.message}
           onChange={updateField}
-          className="min-h-36 w-full rounded-lg border border-light bg-background p-3 text-gray-900 placeholder:text-gray-500 outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20"
+          className="min-h-36 w-full rounded-lg border border-light bg-white p-3 text-[#915EA6] placeholder:text-gray-500 outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20"
         />
       </div>
 
