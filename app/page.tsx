@@ -213,7 +213,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-3 md:grid-cols-3 gap-8 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
             {/* Partner 1 - Cigna */}
             <div className="flex items-center justify-center p-4 grayscale hover:grayscale-0 hover:scale-105 transition-all duration-300">
               <div className="text-center">

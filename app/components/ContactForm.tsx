@@ -43,7 +43,7 @@ export default function ContactForm() {
   }
 
   function updateField(
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) {
     setForm((prev) => ({
       ...prev,
@@ -90,6 +90,24 @@ export default function ContactForm() {
             className="w-full rounded-lg border border-light bg-white p-3 text-[#915EA6] placeholder:text-gray-500 outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20"
           />
         </div>
+      </div>
+
+      <div>
+        <label
+          htmlFor="email"
+          className="mb-2 block text-sm font-medium text-gray-900"
+        >
+          Email
+        </label>
+        <input
+          id="email"
+          name="email"
+          type="email"
+          placeholder="Email"
+          value={form.email}
+          onChange={updateField}
+          className="w-full rounded-lg border border-light bg-white p-3 text-[#915EA6] placeholder:text-gray-500 outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20"
+        />
       </div>
 
       <div>
