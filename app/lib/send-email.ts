@@ -35,7 +35,7 @@ export async function sendContactEmails(
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        from: process.env.RESEND_FROM_EMAIL || "noreply@beyondthecoverage.com",
+        from: process.env.RESEND_FROM_EMAIL_NEW || "noreply@beyondthecoverage.com",
         to: adminEmail,
         subject: `New Contact Submission from ${submission.full_name}`,
         html: adminEmailContent,
@@ -60,7 +60,7 @@ export async function sendContactEmails(
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        from: process.env.RESEND_FROM_EMAIL || "noreply@beyondthecoverage.com",
+        from: process.env.RESEND_FROM_EMAIL_NEW || "noreply@beyondthecoverage.com",
         to: submission.email,
         subject: "Thank you for contacting Beyond the Coverage",
         html: userEmailContent,
