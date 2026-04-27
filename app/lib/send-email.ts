@@ -53,20 +53,20 @@ export async function sendContactEmails(
     }
 
     // Send user confirmation
-    const userEmailResponse = await fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${resendApiKey}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        from: process.env.RESEND_FROM_EMAIL_NEW || "noreply@beyondthecoverage.com",
-        to: submission.email,
-        subject: "Thank you for contacting Beyond the Coverage",
-        html: userEmailContent,
-        reply_to: adminEmail,
-      }),
-    });
+    // const userEmailResponse = await fetch("https://api.resend.com/emails", {
+    //   method: "POST",
+    //   headers: {
+    //     Authorization: `Bearer ${resendApiKey}`,
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify({
+    //     from: process.env.RESEND_FROM_EMAIL_NEW || "noreply@beyondthecoverage.com",
+    //     to: submission.email,
+    //     subject: "Thank you for contacting Beyond the Coverage",
+    //     html: userEmailContent,
+    //     reply_to: adminEmail,
+    //   }),
+    // });
 
     if (!userEmailResponse.ok) {
       const error = await userEmailResponse.json();
