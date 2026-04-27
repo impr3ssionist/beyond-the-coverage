@@ -19,61 +19,66 @@ export default function HomePage() {
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Our Services</h2>
             <div className="w-24 h-1 bg-primary mx-auto mb-6"></div>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Comprehensive insurance consulting services designed to help you navigate coverage options
+              Comprehensive employee insurance consulting services designed to help you navigate coverage options
               with confidence and clarity.
             </p>
           </div>
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {/* Coverage Reviews */}
+            {/* Coverage Reviews - How we can help YOU right now? */}
             <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
               <div className="w-12 h-12 bg-light rounded-lg flex items-center justify-center mb-6">
                 <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <h3 className="text-lg font-semibold mb-3 text-gray-900">Coverage Review</h3>
+              <h3 className="text-lg font-semibold mb-3 text-gray-900">How we can help YOU right now?</h3>
+              <p className="text-sm text-gray-600 mb-4">
+                Free Market Review — Beyond The Coverage offers an analysis of the market based on industry, size and contribution to your current plans. We will break down your current plans and compare them to other comparable companies of size and industry. We will help identify gaps within your offered plan and contribution strategy.
+              </p>
               <p className="text-sm text-gray-600">
-                Comprehensive analysis of your current policies to identify gaps, overlaps, and optimization opportunities.
+                Free Compliance Review — There are many ways to become out of compliance as an employer. We have created a short checklist to review the basic ways to ensure you are in compliance. We are happy to review this with you at any time, client or not.
+              </p>
+              <p className="text-sm text-primary font-medium mt-3">
+                Complete the form below and we will be in touch.
               </p>
             </div>
 
             
 
-            {/* Policy Guidance */}
+            {/* Policy & Strategy Optimization */}
             <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
               <div className="w-12 h-12 bg-secondary rounded-lg flex items-center justify-center mb-6">
                 <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <h3 className="text-lg font-semibold mb-3 text-gray-900">Policy Optimization</h3>
-              <p className="text-sm text-gray-600">
-                Expert guidance through policy selection, terms explanation, and decision-making support for all insurance needs.
+              <h3 className="text-lg font-semibold mb-3 text-gray-900">Policy & Strategy Optimization</h3>
+              <p className="text-sm text-gray-600 mb-3">
+                We go beyond the basics—helping you evaluate your coverage, understand the fine print, and make smarter decisions at every stage.
               </p>
               <ul className="text-sm text-gray-600 space-y-2">
-                <li>• Policy terms explanation</li>
-                <li>• Decision-making support</li>
-                <li>• Claims process guidance</li>
+                <li>• Simplified breakdown of complex policy terms</li>
+                <li>• Strategic support in plan selection and evaluation</li>
+                <li>• Ongoing guidance through claims and real-world use</li>
               </ul>
             </div>
 
-            {/* Quote Support */}
+            {/* Quote Negotiation */}
             <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
               <div className="w-12 h-12 bg-accent rounded-lg flex items-center justify-center mb-6">
                 <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold mb-4 text-gray-900">Quote Support</h3>
+              <h3 className="text-xl font-semibold mb-4 text-gray-900">Quote Negotiation</h3>
               <p className="text-gray-600 mb-4">
-                Streamlined quote comparison and negotiation assistance to help you
-                find the best rates and coverage for your budget.
+                Get more than just quotes—get leverage. Beyond The Coverage compares, negotiates, and positions your plan for the best possible outcome.
               </p>
               <ul className="text-sm text-gray-600 space-y-2">
-                <li>• Multi-carrier quote comparison</li>
-                <li>• Rate negotiation support</li>
-                <li>• Budget optimization</li>
+                <li>• Compare multiple carriers and plan designs</li>
+                <li>• Negotiate competitive rates and terms</li>
+                <li>• Optimize costs without sacrificing coverage</li>
               </ul>
             </div>
 
@@ -86,51 +91,51 @@ export default function HomePage() {
               </div>
               <h3 className="text-xl font-semibold mb-4 text-gray-900">Employee Benefits Consulting</h3>
               <p className="text-gray-600 mb-4">
-                Specialized consulting for employee benefits packages, group insurance,
-                and workplace coverage solutions.
+                We help you evaluate your options, understand your coverage, and build a benefits plan that actually fits your team and budget.
               </p>
               <ul className="text-sm text-gray-600 space-y-2">
-                <li>• Group policy analysis</li>
-                <li>• Employee education</li>
-                <li>• Benefits optimization</li>
+                <li>• Plan design and strategy</li>
+                <li>• Coverage and network evaluation</li>
+                <li>• Employee education and support</li>
+                <li>• Personalized one-on-one support to help your employees confidently choose the coverage that's right for them</li>
               </ul>
             </div>
 
-            {/* Family Coverage Planning */}
+            {/* Renewal Strategy */}
             <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
               <div className="w-12 h-12 bg-light rounded-lg flex items-center justify-center mb-6">
                 <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold mb-4 text-gray-900">Family Coverage Planning</h3>
+              <h3 className="text-xl font-semibold mb-4 text-gray-900">Renewal Strategy</h3>
               <p className="text-gray-600 mb-4">
-                Comprehensive family insurance planning including life, health,
-                disability, and long-term care coverage options.
+                We don't wait until renewal to act. Our proactive mid-year review helps identify opportunities early—so you're prepared, informed, and in control when renewal arrives.
               </p>
               <ul className="text-sm text-gray-600 space-y-2">
-                <li>• Family needs assessment</li>
-                <li>• Multi-policy coordination</li>
-                <li>• Future planning support</li>
+                <li>• Mid-year review to prevent surprises</li>
+                <li>• Early market evaluation and strategy planning</li>
+                <li>• Support in selecting the best-fit plan at renewal</li>
               </ul>
             </div>
 
-            {/* Ongoing Support */}
+            {/* Year-Round Benefits */}
             <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
               <div className="w-12 h-12 bg-secondary rounded-lg flex items-center justify-center mb-6">
                 <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold mb-4 text-gray-900">Ongoing Support</h3>
+              <h3 className="text-xl font-semibold mb-4 text-gray-900">Year-Round Benefits</h3>
               <p className="text-gray-600 mb-4">
-                Continuous support with policy reviews, claims assistance, and
-                coverage adjustments as your needs evolve.
+                We help you stay ahead—not just react—by actively managing your benefits and supporting your team throughout the year.
               </p>
               <ul className="text-sm text-gray-600 space-y-2">
-                <li>• Annual policy reviews</li>
-                <li>• Claims assistance</li>
-                <li>• Coverage updates</li>
+                <li>• Regular plan reviews and strategy reviews to ensure plan optimization</li>
+                <li>• Claims support</li>
+                <li>• Ongoing guidance</li>
+                <li>• Renewal support and guidance</li>
+                <li>• Year round compliance Support and Compliance reminders</li>
               </ul>
             </div>
           </div>
@@ -213,9 +218,9 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
             {/* Partner 1 - Cigna */}
-            <div className="flex items-center justify-center p-4 grayscale hover:grayscale-0 hover:scale-105 transition-all duration-300">
+            <div className="flex items-center justify-center p-6 bg-gray-50 rounded-lg hover:shadow-md transition-all duration-300 md:grayscale md:hover:grayscale-0">
               <div className="text-center">
                 <div className="h-16 w-40 flex items-center justify-center">
                   <Image
@@ -230,7 +235,7 @@ export default function HomePage() {
             </div>
 
             {/* Partner 2 - Kaiser */}
-            <div className="flex items-center justify-center p-4 grayscale hover:grayscale-0 hover:scale-105 transition-all duration-300">
+            <div className="flex items-center justify-center p-6 bg-gray-50 rounded-lg hover:shadow-md transition-all duration-300 md:grayscale md:hover:grayscale-0">
               <div className="text-center">
                 <div className="h-16 w-40 flex items-center justify-center">
                   <Image
@@ -245,7 +250,7 @@ export default function HomePage() {
             </div>
 
             {/* Partner 3 - Boulder Chamber */}
-            <div className="flex items-center justify-center p-4 grayscale hover:grayscale-0 hover:scale-105 transition-all duration-300">
+            <div className="flex items-center justify-center p-6 bg-gray-50 rounded-lg hover:shadow-md transition-all duration-300 md:grayscale md:hover:grayscale-0">
               <div className="text-center">
                 <div className="h-16 w-40 flex items-center justify-center">
                   <Image

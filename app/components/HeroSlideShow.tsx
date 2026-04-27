@@ -50,8 +50,8 @@ export default function HeroSlideshow() {
             </p>
 
             <h1 className="text-4xl md:text-7xl font-bold mb-8 leading-tight">
-              <RotatingWords
-                words={['Benefits', 'Consulting', 'Support', 'Guidance']}
+              Employee <RotatingWords
+                words={['Benefit', 'Consulting', 'Support', 'Guidance']}
                 className="text-4xl md:text-7xl"
               />
               <br />
@@ -59,8 +59,7 @@ export default function HeroSlideshow() {
             </h1>
 
             <p className="mb-10 max-w-2xl text-lg md:text-xl leading-relaxed text-white/95">
-              Personalized help reviewing plans, comparing coverage, and making
-              informed decisions for yourself and your family.
+              Clear, personalized guidance that goes beyond the basic coverage— we help you compare plans, understand your options, and choose with confidence.
             </p>
 
             <div className="flex flex-col gap-4 sm:flex-row sm:gap-6">

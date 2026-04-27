@@ -56,6 +56,12 @@ export default function ContactForm() {
       onSubmit={handleSubmit}
       className="mx-auto max-w-2xl space-y-5 rounded-2xl border border-light bg-white p-8 shadow-lg"
     >
+      <div className="text-center mb-6">
+        <h3 className="text-xl font-semibold text-gray-900 mb-2">
+          Get a free Market Review & Compliance Check
+        </h3>
+      </div>
+
       <div className="grid gap-5 md:grid-cols-2">
         <div>
           <label
