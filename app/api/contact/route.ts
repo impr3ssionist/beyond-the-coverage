@@ -47,9 +47,8 @@ export async function POST(req: Request) {
         phone: parsed.data.phone || null,
         number_of_employees: parsed.data.number_of_employees || null,
         message: parsed.data.message,
-        status: "pending",
       })
-      .select();
+  .select();
 
     if (dbError) {
       console.error("Database error:", dbError);
