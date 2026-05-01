@@ -23,8 +23,7 @@ export async function sendContactEmails(
     // Prepare email content
     const adminEmailContent = generateAdminEmailHTML(submission);
     const userEmailContent = generateUserConfirmationHTML(
-      submission.full_name,
-      submission.email
+      submission.full_name
     );
 
     // Send admin notification (using Resend - update this to match your choice)
@@ -68,12 +67,12 @@ export async function sendContactEmails(
     //   }),
     // });
 
-    if (!userEmailResponse.ok) {
-      const error = await userEmailResponse.json();
-      console.error("Failed to send user confirmation email:", error);
-      // Don't fail the whole request if user email fails
-      // as the important admin email was sent
-    }
+    // if (!userEmailResponse.ok) {
+    //   const error = await userEmailResponse.json();
+    //   console.error("Failed to send user confirmation email:", error);
+    //   // Don't fail the whole request if user email fails
+    //   // as the important admin email was sent
+    // }
 
     return { success: true };
   } catch (error) {
@@ -106,8 +105,7 @@ export async function sendContactEmailsViaSendGrid(
 
     const adminEmailContent = generateAdminEmailHTML(submission);
     const userEmailContent = generateUserConfirmationHTML(
-      submission.full_name,
-      submission.email
+      submission.full_name
     );
 
     const response = await fetch("https://api.sendgrid.com/v3/mail/send", {
