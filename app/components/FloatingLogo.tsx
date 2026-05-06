@@ -19,13 +19,13 @@ export default function FloatingLogo() {
     <div className={`fixed top-0 left-0 z-[9999] h-20 flex items-center transition-opacity duration-300 ${
       scrolled ? "opacity-0 pointer-events-none" : "opacity-100"
     }`}>
-      <div className="bg-gradient-to-br from-white/40 to-white/5 rounded-full p-3 backdrop-blur-sm">
+      <div className="bg-gradient-to-br from-white/40 to-white/5 rounded-full p-3">
         <a href="/">
           <Image
             src="/images/beyondtc_logo.png"
             alt="Beyond the Coverage"
-            width={100}
-            height={100}
+            width={200}
+            height={200}
             priority
             quality={100}
             className="h-20 w-auto"
