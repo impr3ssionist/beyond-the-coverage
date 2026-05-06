@@ -49,13 +49,16 @@ export default function AdminLoginPage() {
     <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 px-4">
       {/* Logo */}
       <div className="mb-8">
-        <Image
-          src="/images/BeyondTC_Logo_White.webp"
-          alt="Beyond the Coverage"
-          width={100}
-          height={100}
-          className="h-20 w-auto"
-        />
+        <div className="bg-gradient-to-br from-white/40 to-white/5 rounded-full p-4 backdrop-blur-sm inline-block">
+          <Image
+            src="/images/beyondtc_logo.png"
+            alt="Beyond the Coverage"
+            width={120}
+            height={120}
+            quality={100}
+            className="h-24 w-auto"
+          />
+        </div>
       </div>
 
       {/* Login Card */}

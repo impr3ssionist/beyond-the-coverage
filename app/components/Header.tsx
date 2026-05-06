@@ -38,16 +38,19 @@ export default function Header() {
     <>
       {/* Logo: always visible */}
       <div className="fixed top-0 left-0 z-50 h-[126px] flex items-center px-6">
-        <a href="/">
-          <Image
-            src="/images/BeyondTC_Logo_White.webp"
-            alt="Beyond the Coverage"
-            width={80}
-            height={80}
-            priority
-            className="h-[95px] w-auto"
-          />
-        </a>
+        <div className="bg-gradient-to-br from-white/40 to-white/5 rounded-full p-3 backdrop-blur-sm">
+          <a href="/">
+            <Image
+              src="/images/beyondtc_logo.png"
+              alt="Beyond the Coverage"
+              width={100}
+              height={100}
+              priority
+              quality={100}
+              className="h-[85px] w-auto"
+            />
+          </a>
+        </div>
       </div>
 
       {/* Scrolled header background: slides in behind logo */}

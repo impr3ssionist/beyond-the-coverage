@@ -1,5 +1,25 @@
 # Environment Variables Configuration Guide
 
+## Required Environment Variables
+
+### Contact Form Email Recipient
+
+**`ADMIN_EMAIL`** (Required)
+
+Email address where contact form submissions are sent. Must be a valid email address.
+
+```env
+ADMIN_EMAIL=sam.haas@beyondthecoverage.com
+```
+
+**Production Deployment Note:** This variable must be added to your Vercel project settings:
+1. Go to **Vercel Dashboard** → **Project Settings** → **Environment Variables**
+2. Add `ADMIN_EMAIL` with value `sam.haas@beyondthecoverage.com`
+3. Set it for **Production** environment
+4. Redeploy after updating
+
+---
+
 ## Development Environment (.env.local)
 
 ```env

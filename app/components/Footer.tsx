@@ -12,7 +12,7 @@ export default function Footer() {
           <div className="space-y-4">
             <div className="flex items-center gap-3 mb-4">
               <Image
-                src="/images/BeyondTC_Logo_White.webp"
+                src="/images/beyondtc_logo.png"
                 alt="Beyond the Coverage"
                 width={80}
                 height={80}
@@ -69,21 +69,21 @@ export default function Footer() {
             </h3>
             <ul className="space-y-3">
               <li>
-                <a href="/privacy" className="text-gray-400 hover:text-primary transition-all duration-200 inline-flex items-center gap-2 group">
+                <a href="/legal/privacy-policy.pdf" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary transition-all duration-200 inline-flex items-center gap-2 group">
                   <span className="w-1 h-1 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
                   Privacy Policy
                 </a>
               </li>
               <li>
-                <a href="/terms" className="text-gray-400 hover:text-primary transition-all duration-200 inline-flex items-center gap-2 group">
+                <a href="/legal/terms-of-service.pdf" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary transition-all duration-200 inline-flex items-center gap-2 group">
                   <span className="w-1 h-1 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
                   Terms of Service
                 </a>
               </li>
               <li>
-                <a href="/disclaimer" className="text-gray-400 hover:text-primary transition-all duration-200 inline-flex items-center gap-2 group">
+                <a href="/legal/website-disclaimer.pdf" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary transition-all duration-200 inline-flex items-center gap-2 group">
                   <span className="w-1 h-1 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                  Disclaimer
+                  Website Disclaimer
                 </a>
               </li>
             </ul>
@@ -132,16 +132,16 @@ export default function Footer() {
               &copy; {currentYear} <span className="text-primary font-semibold">Beyond the Coverage</span>. All rights reserved.
             </p>
             <div className="flex gap-6">
-              <a href="/privacy" className="text-gray-400 hover:text-primary transition-colors duration-200">
+              <a href="/legal/privacy-policy.pdf" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary transition-colors duration-200">
                 Privacy Policy
               </a>
               <span className="text-gray-600">•</span>
-              <a href="/terms" className="text-gray-400 hover:text-primary transition-colors duration-200">
+              <a href="/legal/terms-of-service.pdf" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary transition-colors duration-200">
                 Terms of Service
               </a>
               <span className="text-gray-600">•</span>
-              <a href="/disclaimer" className="text-gray-400 hover:text-primary transition-colors duration-200">
-                Disclaimer
+              <a href="/legal/website-disclaimer.pdf" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary transition-colors duration-200">
+                Website Disclaimer
               </a>
             </div>
           </div>
