@@ -59,7 +59,7 @@ export async function POST(req: Request) {
     }
 
     // Send emails asynchronously
-    const adminEmail = process.env.ADMIN_EMAIL || "sammy@beyondthecoverage.com";
+    const adminEmail = process.env.ADMIN_EMAIL || "sam.haas@beyondthecoverage.com";
     const emailResult = await sendContactEmails(parsed.data, adminEmail);
 
     if (!emailResult.success) {

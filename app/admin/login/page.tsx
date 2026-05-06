@@ -81,7 +81,7 @@ export default function AdminLoginPage() {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="sammy@beyondthecoverage.com"
+              placeholder="sam.haas@beyondthecoverage.com"
               required
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition"
               disabled={loading}

@@ -195,14 +195,14 @@ export default function HomePage() {
             <div className="bg-white p-8 rounded-lg shadow-lg overflow-hidden">
               <Image
                 src="/images/SH - Headshot.jpg"
-                alt="Sammy - Insurance Consultant"
+                alt="Sammie - Insurance Consultant"
                 width={400}
                 height={500}
                 className="w-full h-auto object-cover rounded-lg mb-4"
               />
-              <h3 className="text-xl font-semibold mb-2 text-gray-900">Meet Sammy</h3>
+              <h3 className="text-xl font-semibold mb-2 text-gray-900">Meet Sammie</h3>
               <p className="text-gray-600 text-sm">
-                With 7+ years of dedicated experience in insurance consulting, Sammy is passionate about helping clients navigate complex coverage options with clarity and confidence.
+                With 7+ years of dedicated experience in insurance consulting, Sammie is passionate about helping clients navigate complex coverage options with clarity and confidence.
               </p>
             </div>
           </div>

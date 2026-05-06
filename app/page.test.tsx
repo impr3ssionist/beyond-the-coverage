@@ -105,15 +105,15 @@ describe('HomePage Component', () => {
     expect(screen.getByText('Our Approach')).toBeInTheDocument()
   })
 
-  it('renders Sammy headshot in about section', () => {
+  it('renders Sammie headshot in about section', () => {
     render(<HomePage />)
-    const sammyHeadshot = screen.getByAltText('Sammy - Insurance Consultant')
-    expect(sammyHeadshot).toBeInTheDocument()
+    const sammieHeadshot = screen.getByAltText('Sammie - Insurance Consultant')
+    expect(sammieHeadshot).toBeInTheDocument()
   })
 
-  it('renders Sammy bio information', () => {
+  it('renders Sammie bio information', () => {
     render(<HomePage />)
-    expect(screen.getByText('Meet Sammy')).toBeInTheDocument()
+    expect(screen.getByText('Meet Sammie')).toBeInTheDocument()
     expect(screen.getByText(/years of dedicated experience in insurance consulting/)).toBeInTheDocument()
   })
 

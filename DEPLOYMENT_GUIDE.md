@@ -63,13 +63,13 @@ CREATE POLICY "Only admins update" ON public.contact_requests FOR UPDATE USING (
 
 1. Go to Supabase **Authentication** → **Users**
 2. Click **Add user**
-3. Enter: `sammy@beyondthecoverage.com` and strong password
+3. Enter: `sam.haas@beyondthecoverage.com` and strong password
 4. Copy the **User ID** (UUID)
 5. Run in SQL Editor:
 
 ```sql
 INSERT INTO public.admin_users (id, email, role)
-VALUES ('[USER_ID]', 'sammy@beyondthecoverage.com', 'owner');
+VALUES ('[USER_ID]', 'sam.haas@beyondthecoverage.com', 'owner');
 ```
 
 ### 4. Test Locally

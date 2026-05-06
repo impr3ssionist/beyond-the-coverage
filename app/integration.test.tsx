@@ -169,8 +169,8 @@ describe('Full Application Integration Tests', () => {
     it('about section includes person image and bio', () => {
       render(<HomePage />)
       
-      expect(screen.getByAltText('Sammy - Insurance Consultant')).toBeInTheDocument()
-      expect(screen.getByText('Meet Sammy')).toBeInTheDocument()
+      expect(screen.getByAltText('Sammie - Insurance Consultant')).toBeInTheDocument()
+      expect(screen.getByText('Meet Sammie')).toBeInTheDocument()
     })
   })
 

@@ -69,7 +69,7 @@ Manual approval → Deploy to Production
 - `SUPABASE_URL` - Prod database
 - `SUPABASE_SERVICE_KEY` - For server-side operations
 - `RESEND_API_KEY` - Email service
-- `ADMIN_EMAIL` - Sammy's email for contacts
+- `ADMIN_EMAIL` - Sammie's email for contacts
 - Deployment secrets for each environment
 
 ---
@@ -114,4 +114,4 @@ Manual approval → Deploy to Production
 ✓ Sensitive data in environment variables
 ✓ Rate limiting on contact form
 ✓ CORS properly configured
-✓ Only Sammy's email receives admin access
+✓ Only Sammie's email receives admin access

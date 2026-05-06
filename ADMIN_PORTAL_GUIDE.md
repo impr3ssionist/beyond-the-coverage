@@ -25,7 +25,7 @@ Or from the website, check the email from a contact submission:
 ### Step 2: Log In
 
 **Credentials**:
-- **Email**: `sammy@beyondthecoverage.com` (or your admin email)
+- **Email**: `sam.haas@beyondthecoverage.com` (or your admin email)
 - **Password**: (your password set during setup)
 
 **First Login**:
@@ -254,7 +254,7 @@ e - Export CSV
 **Solutions**:
 1. Verify email is correct
 2. Check caps lock on password
-3. Verify password with Sammy
+3. Verify password with Sammie
 4. Try resetting password in Supabase dashboard
 
 ### Dashboard Won't Load
@@ -420,7 +420,7 @@ Include:
 ## FAQ
 
 **Q: What if I forget my password?**  
-A: Contact Sammy to reset via Supabase dashboard.
+A: Contact Sammie to reset via Supabase dashboard.
 
 **Q: Can I delete submissions?**  
 A: Not from portal (security feature). Contact owner if needed.

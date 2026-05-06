@@ -12,7 +12,7 @@ RESEND_API_KEY=re_xxxxxxxxxxxxxxxxxxxx
 RESEND_FROM_EMAIL=noreply@beyondthecoverage.com
 
 # Admin Configuration
-ADMIN_EMAIL=sammy@beyondthecoverage.com
+ADMIN_EMAIL=sam.haas@beyondthecoverage.com
 NEXT_PUBLIC_APP_URL=http://localhost:3000
 ```
 
@@ -28,7 +28,7 @@ RESEND_API_KEY=re_xxxxxxxxxxxxxxxxxxxx
 RESEND_FROM_EMAIL=noreply@beyondthecoverage.com
 
 # Admin Configuration
-ADMIN_EMAIL=sammy@beyondthecoverage.com
+ADMIN_EMAIL=sam.haas@beyondthecoverage.com
 NEXT_PUBLIC_APP_URL=https://staging.beyondthecoverage.com
 ```
 
@@ -44,7 +44,7 @@ RESEND_API_KEY=re_xxxxxxxxxxxxxxxxxxxx
 RESEND_FROM_EMAIL=noreply@beyondthecoverage.com
 
 # Admin Configuration
-ADMIN_EMAIL=sammy@beyondthecoverage.com
+ADMIN_EMAIL=sam.haas@beyondthecoverage.com
 NEXT_PUBLIC_APP_URL=https://beyondthecoverage.com
 ```
 

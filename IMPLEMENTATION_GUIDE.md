@@ -164,7 +164,7 @@ CREATE POLICY "Only owner can manage admins"
 INSERT INTO public.admin_users (id, email, role)
 VALUES (
   '[USER_ID_FROM_AUTH]',
-  'sammy@beyondthecoverage.com',
+  'sam.haas@beyondthecoverage.com',
   'owner'
 );
 ```
@@ -186,7 +186,7 @@ VALUES (
 ```env
 RESEND_API_KEY=re_xxxxxxxxxxxxxxxxxxxx
 RESEND_FROM_EMAIL=noreply@beyondthecoverage.com
-ADMIN_EMAIL=sammy@beyondthecoverage.com
+ADMIN_EMAIL=sam.haas@beyondthecoverage.com
 NEXT_PUBLIC_APP_URL=https://beyondthecoverage.com
 ```
 
@@ -199,7 +199,7 @@ NEXT_PUBLIC_APP_URL=https://beyondthecoverage.com
 ```env
 SENDGRID_API_KEY=SG.xxxxxxxxxxxxxxxxxxxx
 SENDGRID_FROM_EMAIL=noreply@beyondthecoverage.com
-ADMIN_EMAIL=sammy@beyondthecoverage.com
+ADMIN_EMAIL=sam.haas@beyondthecoverage.com
 NEXT_PUBLIC_APP_URL=https://beyondthecoverage.com
 ```
 
@@ -294,7 +294,7 @@ Use the Supabase dashboard:
 
 1. Go to **Authentication** → **Users**
 2. Click **Add user**
-3. Enter: `sammy@beyondthecoverage.com`
+3. Enter: `sam.haas@beyondthecoverage.com`
 4. Set strong password
 5. Copy the user ID (UUID)
 6. Run SQL from Step 1.4 with the UUID
@@ -474,7 +474,7 @@ SUPABASE_URL=https://prod-db.supabase.co
 - Environment variable isolation
 - Security scanning in CI/CD
 - Dependabot for vulnerability updates
-- Limited deployment approvers (only Sammy)
+- Limited deployment approvers (only Sammie)
 
 ---
 

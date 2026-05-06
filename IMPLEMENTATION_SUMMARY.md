@@ -114,7 +114,7 @@ This document outlines all the changes made to improve the design, functionality
 - Header and footer presence
 - Hero section content
 - All 6 services rendering with descriptions
-- About Us section with Sammy's headshot
+- About Us section with Sammie's headshot
 - Testimonials section with 3 testimonials
 - Contact section with form
 - Section navigation IDs
@@ -174,7 +174,7 @@ npm test -- --coverage    # Generate coverage report
 - Icons using theme colors (primary, secondary, accent, light)
 
 ### About Us Section ✅
-- Sammy's headshot present (SH - Headshot.jpg)
+- Sammie's headshot present (SH - Headshot.jpg)
 - Biography and role information included
 - Mission and approach boxes displayed
 
