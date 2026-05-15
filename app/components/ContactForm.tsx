@@ -29,7 +29,7 @@ export default function ContactForm() {
     // Client-side validation: require a meaningful message
     if (form.message.trim().length < 4) {
       setStatus(
-        "Please enter a more detailed message in the 'How can we help?' field (at least 4 characters)."
+        "Please enter a more detailed message."
       );
       messageRef.current?.focus();
       return;
