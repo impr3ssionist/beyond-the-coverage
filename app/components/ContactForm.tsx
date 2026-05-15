@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 type FormState = {
   full_name: string;
@@ -26,6 +26,15 @@ export default function ContactForm() {
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    // Client-side validation: require a meaningful message
+    if (form.message.trim().length < 4) {
+      setStatus(
+        "Please enter a more detailed message in the 'How can we help?' field (at least 4 characters)."
+      );
+      messageRef.current?.focus();
+      return;
+    }
+
     setStatus("Submitting...");
 
     const res = await fetch("/api/contact", {
@@ -50,6 +59,8 @@ export default function ContactForm() {
       [e.target.name]: e.target.value,
     }));
   }
+
+  const messageRef = useRef<HTMLTextAreaElement | null>(null);
 
   return (
     <form
@@ -170,6 +181,7 @@ export default function ContactForm() {
           placeholder="Tell us a little about what you need"
           value={form.message}
           onChange={updateField}
+          ref={messageRef}
           className="min-h-36 w-full rounded-lg border border-light bg-white p-3 text-[#915EA6] placeholder:text-gray-500 outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20"
         />
       </div>
