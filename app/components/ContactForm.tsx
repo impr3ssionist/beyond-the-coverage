@@ -43,11 +43,21 @@ export default function ContactForm() {
       body: JSON.stringify(form),
     });
 
+    let responseBody: { error?: string } | null = null;
+    try {
+      responseBody = (await res.json()) as { error?: string };
+    } catch {
+      responseBody = null;
+    }
+
     if (res.ok) {
       setStatus("Thanks. We will be in touch.");
       setForm(initialState);
     } else {
-      setStatus("Something went wrong. Please try again.");
+      const errorMessage =
+        responseBody?.error || "Something went wrong. Please try again.";
+      console.error("Contact form submit failed:", res.status, responseBody);
+      setStatus(errorMessage);
     }
   }
 
