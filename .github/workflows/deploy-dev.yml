@@ -29,20 +29,20 @@ jobs:
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
-          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID_DEV }}
           vercel-args: --prod=false
           scope: ${{ secrets.VERCEL_ORG_ID }}
         env:
           NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.DEV_SUPABASE_URL }}
           SUPABASE_SERVICE_KEY: ${{ secrets.DEV_SUPABASE_SERVICE_KEY }}
-          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
-          NEXT_PUBLIC_APP_URL: https://dev.beyondthecoverage.com
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY_DEV }}
+          NEXT_PUBLIC_APP_URL: ${{ secrets.DEV_APP_URL }}
 
       - name: Smoke test
         run: |
           set -euo pipefail
 
-          base_url="https://dev.beyondthecoverage.com"
+          base_url="${{ secrets.DEV_APP_URL }}"
 
           curl --fail --silent --show-error "$base_url/" > /dev/null
           curl --fail --silent --show-error "$base_url/admin/login" > /dev/null
