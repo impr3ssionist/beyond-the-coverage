@@ -50,6 +50,7 @@ jobs:
           set -euo pipefail
 
           base_url="${{ secrets.DEV_DEPLOY_URL }}"
+          base_url="${base_url%/}"
 
           check_status() {
             local label="$1"
@@ -57,7 +58,7 @@ jobs:
             local expected="$3"
             local status
 
-            status="$(curl --silent --output /dev/null --write-out "%{http_code}" "$base_url$path")"
+            status="$(curl --location --silent --output /dev/null --write-out "%{http_code}" "$base_url$path")"
             echo "$label returned HTTP $status"
 
             if [ "$status" != "$expected" ]; then
@@ -69,7 +70,7 @@ jobs:
           check_status "Home page" "/" "200"
           check_status "Admin login" "/admin/login" "200"
 
-          contact_status="$(curl --silent --output /dev/null --write-out "%{http_code}" "$base_url/api/contact")"
+          contact_status="$(curl --location --silent --output /dev/null --write-out "%{http_code}" "$base_url/api/contact")"
           if [ "$contact_status" = "404" ] || [ "$contact_status" = "000" ]; then
             echo "Expected /api/contact to exist, got HTTP $contact_status"
             exit 1
