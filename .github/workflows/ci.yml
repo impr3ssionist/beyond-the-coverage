@@ -1,33 +1,29 @@
-name: CI
-
-- name: Setup Node
-  uses: actions/setup-node@v6
-  with:
-    node-version: 24.x
-    cache: npm
+name: Reusable Validation
 
 on:
+  workflow_call:
+  workflow_dispatch:
   push:
-    branches: [main]
-  pull_request:
-    branches: [main]
+    branches-ignore:
+      - main
+      - develop
+
+env:
+  NODE_VERSION: 20.x
 
 jobs:
-  build:
+  validate:
+    name: Validate
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [24]
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: ${{ env.NODE_VERSION }}
           cache: npm
 
       - name: Install dependencies
@@ -35,6 +31,9 @@ jobs:
 
       - name: Lint
         run: npm run lint
+
+      - name: Test
+        run: npm run test:ci
 
       - name: Build
         run: npm run build
