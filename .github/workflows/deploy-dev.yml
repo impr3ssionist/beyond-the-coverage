@@ -49,7 +49,7 @@ jobs:
         run: |
           set -euo pipefail
 
-          base_url="${{ secrets.DEV_APP_URL }}"
+          base_url="${{ secrets.DEV_DEPLOY_URL }}"
 
           check_status() {
             local label="$1"
