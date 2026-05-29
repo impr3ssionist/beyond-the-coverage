@@ -3,11 +3,11 @@ name: Environment Validation
 on:
   push:
     branches:
-      - develop
+      - dev
       - main
   pull_request:
     branches:
-      - develop
+      - dev
       - main
   workflow_dispatch:
 
