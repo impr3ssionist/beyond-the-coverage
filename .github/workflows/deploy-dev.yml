@@ -51,8 +51,23 @@ jobs:
 
           base_url="${{ secrets.DEV_APP_URL }}"
 
-          curl --fail --silent --show-error "$base_url/" > /dev/null
-          curl --fail --silent --show-error "$base_url/admin/login" > /dev/null
+          check_status() {
+            local label="$1"
+            local path="$2"
+            local expected="$3"
+            local status
+
+            status="$(curl --silent --output /dev/null --write-out "%{http_code}" "$base_url$path")"
+            echo "$label returned HTTP $status"
+
+            if [ "$status" != "$expected" ]; then
+              echo "Expected $label to return HTTP $expected"
+              exit 1
+            fi
+          }
+
+          check_status "Home page" "/" "200"
+          check_status "Admin login" "/admin/login" "200"
 
           contact_status="$(curl --silent --output /dev/null --write-out "%{http_code}" "$base_url/api/contact")"
           if [ "$contact_status" = "404" ] || [ "$contact_status" = "000" ]; then
