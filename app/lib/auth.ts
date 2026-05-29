@@ -1,5 +1,4 @@
 import { createClient } from "@supabase/supabase-js";
-import { cookies } from "next/headers";
 
 /**
  * Server-side Supabase client
@@ -54,7 +53,7 @@ export async function getAdminSession() {
       user: session.user,
       adminUser,
     };
-  } catch (error) {
+  } catch {
     return null;
   }
 }
@@ -107,7 +106,7 @@ export async function verifyAdminAuth(request: Request) {
       user,
       adminUser,
     };
-  } catch (error) {
+  } catch {
     return null;
   }
 }

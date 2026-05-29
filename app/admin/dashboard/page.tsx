@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
@@ -22,11 +22,7 @@ export default function AdminDashboardPage() {
   const [error, setError] = useState("");
   const [selectedId, setSelectedId] = useState<string | null>(null);
 
-  useEffect(() => {
-    fetchSubmissions();
-  }, []);
-
-  async function fetchSubmissions() {
+  const fetchSubmissions = useCallback(async () => {
     try {
       setLoading(true);
       const token = localStorage.getItem("adminToken");
@@ -61,7 +57,11 @@ export default function AdminDashboardPage() {
     } finally {
       setLoading(false);
     }
-  }
+  }, [router]);
+
+  useEffect(() => {
+    fetchSubmissions();
+  }, [fetchSubmissions]);
 
   function handleLogout() {
     localStorage.removeItem("adminToken");

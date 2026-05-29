@@ -1,7 +1,6 @@
 import ContactForm from "./components/ContactForm";
 import Header from "./components/Header";
 import HeroSlideshow from "./components/HeroSlideShow";
-import RotatingWords from "./components/RotatingWords";
 import Footer from "./components/Footer";
 import Image from "next/image";
 
@@ -97,7 +96,7 @@ export default function HomePage() {
                 <li>• Plan design and strategy</li>
                 <li>• Coverage and network evaluation</li>
                 <li>• Employee education and support</li>
-                <li>• Personalized one-on-one support to help your employees confidently choose the coverage that's right for them</li>
+                <li>• Personalized one-on-one support to help your employees confidently choose the coverage that&apos;s right for them</li>
               </ul>
             </div>
 
@@ -110,7 +109,7 @@ export default function HomePage() {
               </div>
               <h3 className="text-xl font-semibold mb-4 text-gray-900">Renewal Strategy</h3>
               <p className="text-gray-600 mb-4">
-                We don't wait until renewal to act. Our proactive mid-year review helps identify opportunities early—so you're prepared, informed, and in control when renewal arrives.
+                We don&apos;t wait until renewal to act. Our proactive mid-year review helps identify opportunities early—so you&apos;re prepared, informed, and in control when renewal arrives.
               </p>
               <ul className="text-sm text-gray-600 space-y-2">
                 <li>• Mid-year review to prevent surprises</li>
@@ -272,7 +271,7 @@ export default function HomePage() {
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Get in Touch</h2>
             <div className="w-24 h-1 bg-primary mx-auto mb-6"></div>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Ready to find the perfect insurance coverage for your needs? We're here to help. Reach out today.
+              Ready to find the perfect insurance coverage for your needs? We&apos;re here to help. Reach out today.
             </p>
           </div>
           <ContactForm />
