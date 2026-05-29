@@ -77,7 +77,10 @@ export async function PATCH(req: Request) {
     const supabase = getAdminSupabaseClient();
 
     // Update submission
-    const updateData: any = {};
+    const updateData: {
+      status?: string;
+      admin_notes?: string;
+    } = {};
     if (status) updateData.status = status;
     if (admin_notes !== undefined) updateData.admin_notes = admin_notes;
 

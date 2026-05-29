@@ -22,10 +22,6 @@ export async function sendContactEmails(
 
     // Prepare email content
     const adminEmailContent = generateAdminEmailHTML(submission);
-    const userEmailContent = generateUserConfirmationHTML(
-      submission.full_name
-    );
-
     // Send admin notification (using Resend - update this to match your choice)
     const adminEmailResponse = await fetch("https://api.resend.com/emails", {
       method: "POST",

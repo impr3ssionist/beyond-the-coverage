@@ -94,16 +94,19 @@ export class RedisRateLimiter {
   // This is a placeholder for production use
 
   async isLimited(identifier: string): Promise<boolean> {
+    void identifier;
     // TODO: Implement with Redis
     return false;
   }
 
   async getRemaining(identifier: string): Promise<number> {
+    void identifier;
     // TODO: Implement with Redis
     return 0;
   }
 
   async reset(identifier: string): Promise<void> {
+    void identifier;
     // TODO: Implement with Redis
   }
 }
