@@ -59,8 +59,11 @@ export async function POST(req: Request) {
       );
     }
 
-    // Send emails asynchronously
-    const adminEmail = process.env.ADMIN_EMAIL || "sam.haas@beyondthecoverage.com";
+    // Send admin notification. Supports comma-separated recipients.
+    const adminEmail =
+      process.env.ADMIN_EMAILS ||
+      process.env.ADMIN_EMAIL ||
+      "sam.haas@beyondthecoverage.com";
     const emailResult = await sendContactEmails(parsed.data, adminEmail);
 
     if (!emailResult.success) {

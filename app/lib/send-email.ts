@@ -1,13 +1,18 @@
 import { ContactInput } from "./validation";
 import { generateAdminEmailHTML, generateUserConfirmationHTML } from "./email";
 
+const fromEmail =
+  process.env.RESEND_FROM_EMAIL ||
+  process.env.RESEND_FROM_EMAIL_NEW ||
+  "noreply@beyondthecoverage.com";
+
 /**
  * Send email via Resend API
  * Sends both admin notification and user confirmation
  */
 export async function sendContactEmails(
   submission: ContactInput,
-  adminEmail: string
+  adminEmail: string | string[]
 ): Promise<{ success: boolean; error?: string }> {
   try {
     const resendApiKey = process.env.RESEND_API_KEY;
@@ -22,6 +27,21 @@ export async function sendContactEmails(
 
     // Prepare email content
     const adminEmailContent = generateAdminEmailHTML(submission);
+    const recipients = Array.isArray(adminEmail)
+      ? adminEmail
+      : adminEmail
+          .split(",")
+          .map((email) => email.trim())
+          .filter(Boolean);
+
+    if (recipients.length === 0) {
+      console.error("ADMIN_EMAIL not configured");
+      return {
+        success: false,
+        error: "Admin email not configured",
+      };
+    }
+
     // Send admin notification (using Resend - update this to match your choice)
     const adminEmailResponse = await fetch("https://api.resend.com/emails", {
       method: "POST",
@@ -30,8 +50,8 @@ export async function sendContactEmails(
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        from: process.env.RESEND_FROM_EMAIL_NEW || "noreply@beyondthecoverage.com",
-        to: adminEmail,
+        from: fromEmail,
+        to: recipients,
         subject: `New Contact Submission from ${submission.full_name}`,
         html: adminEmailContent,
         reply_to: submission.email,
@@ -55,7 +75,7 @@ export async function sendContactEmails(
     //     "Content-Type": "application/json",
     //   },
     //   body: JSON.stringify({
-    //     from: process.env.RESEND_FROM_EMAIL_NEW || "noreply@beyondthecoverage.com",
+    //     from: fromEmail,
     //     to: submission.email,
     //     subject: "Thank you for contacting Beyond the Coverage",
     //     html: userEmailContent,
@@ -86,7 +106,7 @@ export async function sendContactEmails(
  */
 export async function sendContactEmailsViaSendGrid(
   submission: ContactInput,
-  adminEmail: string
+  adminEmail: string | string[]
 ): Promise<{ success: boolean; error?: string }> {
   try {
     const sendGridApiKey = process.env.SENDGRID_API_KEY;
@@ -103,6 +123,12 @@ export async function sendContactEmailsViaSendGrid(
     const userEmailContent = generateUserConfirmationHTML(
       submission.full_name
     );
+    const recipients = Array.isArray(adminEmail)
+      ? adminEmail
+      : adminEmail
+          .split(",")
+          .map((email) => email.trim())
+          .filter(Boolean);
 
     const response = await fetch("https://api.sendgrid.com/v3/mail/send", {
       method: "POST",
@@ -113,7 +139,7 @@ export async function sendContactEmailsViaSendGrid(
       body: JSON.stringify({
         personalizations: [
           {
-            to: [{ email: adminEmail }],
+            to: recipients.map((email) => ({ email })),
             subject: `New Contact Submission from ${submission.full_name}`,
           },
           {

@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
 
     environment:
-      name: development
+      name: dev
       url: https://dev.beyondthecoverage.com
 
     env:
@@ -40,6 +40,9 @@ jobs:
           NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.DEV_SUPABASE_URL }}
           SUPABASE_SERVICE_KEY: ${{ secrets.DEV_SUPABASE_SERVICE_KEY }}
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY_DEV }}
+          RESEND_FROM_EMAIL: ${{ secrets.RESEND_FROM_EMAIL_DEV }}
+          ADMIN_EMAILS: ${{ secrets.DEV_ADMIN_EMAILS }}
+          ADMIN_EMAIL: ${{ secrets.DEV_ADMIN_EMAIL }}
           NEXT_PUBLIC_APP_URL: ${{ secrets.DEV_APP_URL }}
 
       - name: Deploy to Vercel
