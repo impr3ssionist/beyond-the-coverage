@@ -1,5 +1,8 @@
 import { NextResponse } from "next/server";
-import { getAdminSupabaseClient } from "../../../../lib/auth";
+import {
+  getAdminSupabaseClient,
+  getSupabaseAuthClient,
+} from "../../../../lib/auth";
 
 /**
  * Admin login endpoint
@@ -16,10 +19,10 @@ export async function POST(req: Request) {
       );
     }
 
-    const supabase = getAdminSupabaseClient();
+    const authClient = getSupabaseAuthClient();
 
     // Sign in with Supabase Auth
-    const { data, error: authError } = await supabase.auth.signInWithPassword({
+    const { data, error: authError } = await authClient.auth.signInWithPassword({
       email,
       password,
     });
@@ -38,7 +41,8 @@ export async function POST(req: Request) {
       );
     }
     
-    const { data: adminUser, error: adminError } = await supabase
+    const adminClient = getAdminSupabaseClient();
+    const { data: adminUser, error: adminError } = await adminClient
       .from("admin_users")
       .select("id, user_id, email, role")
       .eq("user_id", data.user.id)

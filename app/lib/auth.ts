@@ -1,5 +1,4 @@
 import { createClient } from "@supabase/supabase-js";
-import { cookies } from "next/headers";
 
 /**
  * Server-side Supabase client
@@ -13,7 +12,35 @@ export function getAdminSupabaseClient() {
     throw new Error("Missing Supabase credentials");
   }
 
-  return createClient(supabaseUrl, serviceRoleKey);
+  return createClient(supabaseUrl, serviceRoleKey, {
+    auth: {
+      autoRefreshToken: false,
+      persistSession: false,
+    },
+  });
+}
+
+/**
+ * Server-side Supabase auth client
+ * Used for password sign-in only, so user sessions do not pollute service-role queries.
+ */
+export function getSupabaseAuthClient() {
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const authKey =
+    process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY ||
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ||
+    process.env.SUPABASE_SERVICE_KEY;
+
+  if (!supabaseUrl || !authKey) {
+    throw new Error("Missing Supabase auth credentials");
+  }
+
+  return createClient(supabaseUrl, authKey, {
+    auth: {
+      autoRefreshToken: false,
+      persistSession: false,
+    },
+  });
 }
 
 /**
@@ -29,7 +56,7 @@ export async function getAdminSession() {
       return null;
     }
 
-    const supabase = createClient(supabaseUrl, serviceRoleKey);
+    const supabase = getAdminSupabaseClient();
 
     // Get session from auth cookie
     const {
@@ -54,7 +81,7 @@ export async function getAdminSession() {
       user: session.user,
       adminUser,
     };
-  } catch (error) {
+  } catch {
     return null;
   }
 }
@@ -73,7 +100,7 @@ export async function verifyAdminAuth(request: Request) {
       return null;
     }
 
-    const supabase = createClient(supabaseUrl, serviceRoleKey);
+    const supabase = getAdminSupabaseClient();
 
     // Get auth header
     const authHeader = request.headers.get("Authorization");
@@ -107,7 +134,7 @@ export async function verifyAdminAuth(request: Request) {
       user,
       adminUser,
     };
-  } catch (error) {
+  } catch {
     return null;
   }
 }
