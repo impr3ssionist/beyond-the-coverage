@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { supabase } from "../../lib/supabase";
+import { getSupabaseClient } from "../../lib/supabase";
 import { contactSchema } from "../../lib/validation";
 import { sendContactEmails } from "../../lib/send-email";
 import { RateLimiter } from "../../lib/rate-limit";
@@ -38,6 +38,7 @@ export async function POST(req: Request) {
     }
 
     // Store in database
+    const supabase = getSupabaseClient();
     const { error: dbError, data: insertedData } = await supabase
       .from("contact_requests")
       .insert({

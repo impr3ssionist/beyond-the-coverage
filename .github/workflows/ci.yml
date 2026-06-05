@@ -1,11 +1,5 @@
 name: CI
 
-- name: Setup Node
-  uses: actions/setup-node@v6
-  with:
-    node-version: 24.x
-    cache: npm
-
 on:
   push:
     branches: [main]
