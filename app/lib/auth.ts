@@ -41,8 +41,8 @@ export async function getAdminSession() {
 
     const { data: adminUser } = await supabase
       .from("admin_users")
-      .select("id, user_id, email, role")
-      .eq("user_id", session.user.id)
+      .select("id, email, role")
+      .eq("id", session.user.id)
       .single();
 
     if (!adminUser) {
@@ -94,8 +94,8 @@ export async function verifyAdminAuth(request: Request) {
     // Check admin_users table
     const { data: adminUser } = await supabase
       .from("admin_users")
-      .select("id, user_id, email, role")
-      .eq("user_id", user.id)
+      .select("id, email, role")
+      .eq("id", user.id)
       .single();
 
     if (!adminUser) {
@@ -142,7 +142,7 @@ export async function initializeAdminUser(email: string) {
     const { error: insertError } = await supabase
       .from("admin_users")
       .insert({
-        user_id: signUpData.user.id,
+        id: signUpData.user.id,
         email,
         role: "owner",
       });
