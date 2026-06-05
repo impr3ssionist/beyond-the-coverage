@@ -1,10 +1,11 @@
 import { render, screen } from '@testing-library/react'
-import Footer from '@/components/Footer'
+import type { ComponentProps } from 'react'
+import Footer from './Footer'
 
 // Mock next/image
 jest.mock('next/image', () => ({
   __esModule: true,
-  default: (props: any) => {
+  default: (props: ComponentProps<'img'>) => {
     // eslint-disable-next-line jsx-a11y/alt-text
     return <img {...props} />
   },

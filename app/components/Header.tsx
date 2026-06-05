@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -39,7 +40,7 @@ export default function Header() {
       {/* Logo: always visible */}
       <div className="fixed top-0 left-0 z-50 h-[126px] flex items-center px-6">
         <div className="bg-gradient-to-br from-white/40 to-white/5 rounded-full p-3">
-          <a href="/">
+          <Link href="/">
             <Image
               src="/images/beyondtc_logo.png"
               alt="Beyond the Coverage"
@@ -49,7 +50,7 @@ export default function Header() {
               quality={100}
               className="h-[85px] w-auto"
             />
-          </a>
+          </Link>
         </div>
       </div>
 

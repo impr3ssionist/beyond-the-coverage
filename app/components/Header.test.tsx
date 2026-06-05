@@ -1,10 +1,11 @@
-import { render, screen, fireEvent, waitFor } from '@testing-library/react'
-import Header from '@/components/Header'
+import { render, screen, fireEvent } from '@testing-library/react'
+import type { ComponentProps } from 'react'
+import Header from './Header'
 
 // Mock next/image
 jest.mock('next/image', () => ({
   __esModule: true,
-  default: (props: any) => {
+  default: (props: ComponentProps<'img'>) => {
     // eslint-disable-next-line jsx-a11y/alt-text
     return <img {...props} />
   },
@@ -143,9 +144,5 @@ describe('Header Component', () => {
     const logo = screen.getByAltText('Beyond the Coverage')
     // The priority attribute should have been passed to next/image
     expect(logo).toBeInTheDocument()
-  })
-})
-    const logoLink = screen.getByAltText('Beyond the Coverage').closest('a')
-    expect(logoLink).toHaveAttribute('href', '/')
   })
 })

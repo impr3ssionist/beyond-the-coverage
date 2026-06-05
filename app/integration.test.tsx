@@ -1,8 +1,9 @@
 import { render, screen, fireEvent } from '@testing-library/react'
-import HomePage from '@/page'
+import type { ComponentProps } from 'react'
+import HomePage from './page'
 
 // Mock components for integration testing
-jest.mock('@/components/Header', () => {
+jest.mock('./components/Header', () => {
   return function MockHeader() {
     return (
       <div data-testid="header" role="banner">
@@ -15,7 +16,7 @@ jest.mock('@/components/Header', () => {
   }
 })
 
-jest.mock('@/components/HeroSlideShow', () => {
+jest.mock('./components/HeroSlideShow', () => {
   return function MockHeroSlideshow() {
     return (
       <div data-testid="hero" role="main">
@@ -27,7 +28,7 @@ jest.mock('@/components/HeroSlideShow', () => {
   }
 })
 
-jest.mock('@/components/ContactForm', () => {
+jest.mock('./components/ContactForm', () => {
   return function MockContactForm() {
     return (
       <div data-testid="contact-form">
@@ -41,7 +42,7 @@ jest.mock('@/components/ContactForm', () => {
   }
 })
 
-jest.mock('@/components/Footer', () => {
+jest.mock('./components/Footer', () => {
   return function MockFooter() {
     return (
       <div data-testid="footer" role="contentinfo">
@@ -55,7 +56,7 @@ jest.mock('@/components/Footer', () => {
   }
 })
 
-jest.mock('@/components/RotatingWords', () => {
+jest.mock('./components/RotatingWords', () => {
   return function MockRotatingWords({ words }: { words: string[] }) {
     return <div data-testid="rotating-words">{words[0]}</div>
   }
@@ -63,7 +64,7 @@ jest.mock('@/components/RotatingWords', () => {
 
 jest.mock('next/image', () => ({
   __esModule: true,
-  default: (props: any) => {
+  default: (props: ComponentProps<'img'>) => {
     // eslint-disable-next-line jsx-a11y/alt-text
     return <img {...props} />
   },
