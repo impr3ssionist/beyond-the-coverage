@@ -40,8 +40,8 @@ export async function POST(req: Request) {
     
     const { data: adminUser, error: adminError } = await supabase
       .from("admin_users")
-      .select("id, email, role")
-      .eq("id", data.user.id)
+      .select("id, user_id, email, role")
+      .eq("user_id", data.user.id)
       .single();
 
     if (adminError || !adminUser) {
