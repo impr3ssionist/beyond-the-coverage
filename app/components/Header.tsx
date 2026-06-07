@@ -83,12 +83,12 @@ export default function Header() {
             About
           </a>
           <a
-            href="#trust"
+            href="#partners"
             className={`text-sm transition-colors duration-300 ${
               scrolled ? "text-foreground hover:text-primary" : "text-white hover:text-white/80"
             }`}
           >
-            Trust
+            Partners
           </a>
           <a
             href="#contact"
@@ -175,11 +175,11 @@ export default function Header() {
               About
             </a>
             <a
-              href="#trust"
+              href="#partners"
               className="text-3xl font-semibold text-primary"
               onClick={closeMenu}
             >
-              Trust
+              Partners
             </a>
             <a
               href="#contact"

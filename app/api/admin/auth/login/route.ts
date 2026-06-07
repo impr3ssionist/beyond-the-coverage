@@ -49,13 +49,6 @@ export async function POST(req: Request) {
       .single();
 
     if (adminError || !adminUser) {
-      console.error("Admin authorization lookup failed", {
-        userId: data.user.id,
-        userEmail: data.user.email,
-        adminError,
-        adminUserFound: Boolean(adminUser),
-      });
-
       return NextResponse.json(
         { error: "Not authorized as admin" },
         { status: 403 }

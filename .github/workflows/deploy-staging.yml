@@ -124,6 +124,9 @@ jobs:
     needs: [test, lint-and-build]
     runs-on: ubuntu-latest
     if: github.event_name == 'pull_request' && always()
+    permissions:
+      issues: write
+      pull-requests: write
     
     steps:
       - name: 💬 Comment test results
