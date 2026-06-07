@@ -208,6 +208,49 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/*
+          FUTURE TRUST / TESTIMONIALS SECTION
+          Keep this parked until client-approved testimonials are ready.
+
+          <section id="trust" className="px-6 py-20 max-w-6xl mx-auto bg-gray-50">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
+                Why Our Clients Trust Us
+              </h2>
+              <div className="w-24 h-1 bg-primary mx-auto mb-6"></div>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                Real feedback from clients who rely on Beyond the Coverage for clear insurance guidance.
+              </p>
+            </div>
+
+            <div className="grid gap-8 md:grid-cols-3">
+              <article className="bg-white p-8 rounded-lg shadow-lg">
+                <p className="text-gray-600 mb-6">
+                  Beyond the Coverage made insurance understandable and helped us choose with confidence.
+                </p>
+                <p className="font-semibold text-gray-900">Sarah M.</p>
+                <p className="text-sm text-gray-500">Family Insurance Client</p>
+              </article>
+
+              <article className="bg-white p-8 rounded-lg shadow-lg">
+                <p className="text-gray-600 mb-6">
+                  As a business owner, I appreciated the practical guidance and fast communication.
+                </p>
+                <p className="font-semibold text-gray-900">James R.</p>
+                <p className="text-sm text-gray-500">Business Owner</p>
+              </article>
+
+              <article className="bg-white p-8 rounded-lg shadow-lg">
+                <p className="text-gray-600 mb-6">
+                  The team&apos;s knowledge and attention to detail helped me understand my options.
+                </p>
+                <p className="font-semibold text-gray-900">Michael T.</p>
+                <p className="text-sm text-gray-500">Individual Client</p>
+              </article>
+            </div>
+          </section>
+        */}
+
         {/* PARTNERS SECTION */}
         <section id="partners" className="px-6 py-20 max-w-6xl mx-auto bg-white">
           <div className="text-center mb-12">

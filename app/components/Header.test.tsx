@@ -2,10 +2,17 @@ import { render, screen, fireEvent } from '@testing-library/react'
 import type { ComponentProps } from 'react'
 import Header from './Header'
 
+type MockImageProps = ComponentProps<'img'> & {
+  priority?: boolean
+  quality?: number
+}
+
 // Mock next/image
 jest.mock('next/image', () => ({
   __esModule: true,
-  default: (props: ComponentProps<'img'>) => {
+  default: ({ priority, quality, ...props }: MockImageProps) => {
+    void priority
+    void quality
     // eslint-disable-next-line jsx-a11y/alt-text
     return <img {...props} />
   },
@@ -29,7 +36,7 @@ describe('Header Component', () => {
     render(<Header />)
     expect(screen.getByText('Services')).toBeInTheDocument()
     expect(screen.getByText('About')).toBeInTheDocument()
-    expect(screen.getByText('Trust')).toBeInTheDocument()
+    expect(screen.getByText('Partners')).toBeInTheDocument()
     expect(screen.getByText('Contact')).toBeInTheDocument()
   })
 
@@ -37,12 +44,12 @@ describe('Header Component', () => {
     render(<Header />)
     const servicesLink = screen.getAllByText('Services')[0].closest('a')
     const aboutLink = screen.getAllByText('About')[0].closest('a')
-    const trustLink = screen.getAllByText('Trust')[0].closest('a')
+    const partnersLink = screen.getAllByText('Partners')[0].closest('a')
     const contactLink = screen.getAllByText('Contact')[0].closest('a')
     
     expect(servicesLink).toHaveAttribute('href', '#services')
     expect(aboutLink).toHaveAttribute('href', '#about')
-    expect(trustLink).toHaveAttribute('href', '#trust')
+    expect(partnersLink).toHaveAttribute('href', '#partners')
     expect(contactLink).toHaveAttribute('href', '#contact')
   })
 
@@ -84,8 +91,7 @@ describe('Header Component', () => {
     const closeButton = screen.getByLabelText('Close navigation menu')
     fireEvent.click(closeButton)
     
-    // After close, we shouldn't see the full-screen overlay behavior
-    expect(closeButton).toBeInTheDocument()
+    expect(screen.queryByLabelText('Close navigation menu')).not.toBeInTheDocument()
   })
 
   it('closes mobile menu when a navigation link is clicked', () => {

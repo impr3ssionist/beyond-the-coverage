@@ -2,6 +2,11 @@ import { render, screen } from '@testing-library/react'
 import type { ComponentProps } from 'react'
 import HomePage from './page'
 
+type MockImageProps = ComponentProps<'img'> & {
+  priority?: boolean
+  quality?: number
+}
+
 // Mock components
 jest.mock('./components/Header', () => {
   return function MockHeader() {
@@ -11,7 +16,12 @@ jest.mock('./components/Header', () => {
 
 jest.mock('./components/HeroSlideShow', () => {
   return function MockHeroSlideshow() {
-    return <div data-testid="hero">Hero Slideshow</div>
+    return (
+      <div data-testid="hero">
+        Hero Slideshow
+        <div data-testid="rotating-words">Benefits</div>
+      </div>
+    )
   }
 })
 
@@ -35,7 +45,9 @@ jest.mock('./components/RotatingWords', () => {
 
 jest.mock('next/image', () => ({
   __esModule: true,
-  default: (props: ComponentProps<'img'>) => {
+  default: ({ priority, quality, ...props }: MockImageProps) => {
+    void priority
+    void quality
     // eslint-disable-next-line jsx-a11y/alt-text
     return <img {...props} />
   },
@@ -67,20 +79,20 @@ describe('HomePage Component', () => {
 
   it('renders all service boxes with icons', () => {
     render(<HomePage />)
-    const serviceBoxes = screen.getByText('Coverage Reviews')
+    const serviceBoxes = screen.getByText('How we can help YOU right now?')
     expect(serviceBoxes).toBeInTheDocument()
     
-    expect(screen.getByText('Policy Guidance')).toBeInTheDocument()
-    expect(screen.getByText('Quote Support')).toBeInTheDocument()
+    expect(screen.getByText('Policy & Strategy Optimization')).toBeInTheDocument()
+    expect(screen.getByText('Quote Negotiation')).toBeInTheDocument()
     expect(screen.getByText('Employee Benefits Consulting')).toBeInTheDocument()
-    expect(screen.getByText('Family Coverage Planning')).toBeInTheDocument()
-    expect(screen.getByText('Ongoing Support')).toBeInTheDocument()
+    expect(screen.getByText('Renewal Strategy')).toBeInTheDocument()
+    expect(screen.getByText('Year-Round Benefits')).toBeInTheDocument()
   })
 
   it('service boxes have complete descriptions', () => {
     render(<HomePage />)
-    expect(screen.getByText(/Comprehensive analysis of your current insurance policies/)).toBeInTheDocument()
-    expect(screen.getByText(/Expert guidance through policy selection/)).toBeInTheDocument()
+    expect(screen.getByText(/Free Market Review/)).toBeInTheDocument()
+    expect(screen.getByText(/Simplified breakdown of complex policy terms/)).toBeInTheDocument()
   })
 
   it('services section has call-to-action button', () => {
@@ -118,23 +130,40 @@ describe('HomePage Component', () => {
     expect(screen.getByText(/years of dedicated experience in insurance consulting/)).toBeInTheDocument()
   })
 
-  // Trust/Testimonials Section Tests
-  it('renders trust section with heading', () => {
+  // Partners Section Tests
+  it('renders partners section with heading', () => {
     render(<HomePage />)
-    expect(screen.getByText('Why Our Clients Trust Us')).toBeInTheDocument()
+    expect(screen.getByText('Our Partners')).toBeInTheDocument()
   })
 
-  it('renders testimonials with star ratings', () => {
+  it('renders partner logos', () => {
     render(<HomePage />)
-    expect(screen.getByText(/Beyond the Coverage made insurance understandable/)).toBeInTheDocument()
+    expect(screen.getByAltText('Cigna')).toBeInTheDocument()
+    expect(screen.getByAltText('Kaiser Permanente')).toBeInTheDocument()
+    expect(screen.getByAltText('Boulder Chamber of Commerce')).toBeInTheDocument()
   })
 
-  it('renders testimonial author names', () => {
-    render(<HomePage />)
-    expect(screen.getByText('Sarah M.')).toBeInTheDocument()
-    expect(screen.getByText('James R.')).toBeInTheDocument()
-    expect(screen.getByText('Michael T.')).toBeInTheDocument()
-  })
+  /*
+   * FUTURE TRUST / TESTIMONIALS TESTS
+   * Re-enable these when the commented Trust section in page.tsx is approved and restored.
+   *
+   * it('renders trust section with heading', () => {
+   *   render(<HomePage />)
+   *   expect(screen.getByText('Why Our Clients Trust Us')).toBeInTheDocument()
+   * })
+   *
+   * it('renders testimonials with star ratings', () => {
+   *   render(<HomePage />)
+   *   expect(screen.getByText(/Beyond the Coverage made insurance understandable/)).toBeInTheDocument()
+   * })
+   *
+   * it('renders testimonial author names', () => {
+   *   render(<HomePage />)
+   *   expect(screen.getByText('Sarah M.')).toBeInTheDocument()
+   *   expect(screen.getByText('James R.')).toBeInTheDocument()
+   *   expect(screen.getByText('Michael T.')).toBeInTheDocument()
+   * })
+   */
 
   // Contact Section Tests
   it('renders contact section with heading', () => {
@@ -164,7 +193,7 @@ describe('HomePage Component', () => {
     const { container } = render(<HomePage />)
     expect(container.querySelector('#services')).toBeInTheDocument()
     expect(container.querySelector('#about')).toBeInTheDocument()
-    expect(container.querySelector('#trust')).toBeInTheDocument()
+    expect(container.querySelector('#partners')).toBeInTheDocument()
     expect(container.querySelector('#contact')).toBeInTheDocument()
   })
 
@@ -177,7 +206,7 @@ describe('HomePage Component', () => {
   // Integration Tests
   it('all major sections are accessible via navigation', () => {
     const { container } = render(<HomePage />)
-    const sections = ['#services', '#about', '#trust', '#contact']
+    const sections = ['#services', '#about', '#partners', '#contact']
     
     sections.forEach(sectionId => {
       const section = container.querySelector(sectionId)

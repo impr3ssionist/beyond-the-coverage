@@ -2,10 +2,17 @@ import { render, screen } from '@testing-library/react'
 import type { ComponentProps } from 'react'
 import Footer from './Footer'
 
+type MockImageProps = ComponentProps<'img'> & {
+  priority?: boolean
+  quality?: number
+}
+
 // Mock next/image
 jest.mock('next/image', () => ({
   __esModule: true,
-  default: (props: ComponentProps<'img'>) => {
+  default: ({ priority, quality, ...props }: MockImageProps) => {
+    void priority
+    void quality
     // eslint-disable-next-line jsx-a11y/alt-text
     return <img {...props} />
   },
@@ -27,8 +34,10 @@ describe('Footer Component', () => {
   // Copyright and Date Tests
   it('renders copyright notice with current year', () => {
     const currentYear = new Date().getFullYear()
-    render(<Footer />)
-    expect(screen.getByText(new RegExp(`${currentYear}.*Beyond the Coverage`))).toBeInTheDocument()
+    const { container } = render(<Footer />)
+    const footer = container.querySelector('footer')
+    expect(footer).toHaveTextContent(String(currentYear))
+    expect(footer).toHaveTextContent('Beyond the Coverage')
   })
 
   // Navigation Section Tests
@@ -43,7 +52,7 @@ describe('Footer Component', () => {
     expect(serviceLinks.length).toBeGreaterThan(0)
     
     expect(screen.getByText('About Us')).toBeInTheDocument()
-    expect(screen.getByText('Testimonials')).toBeInTheDocument()
+    expect(screen.getByText('Partners')).toBeInTheDocument()
     expect(screen.getByText('Contact')).toBeInTheDocument()
   })
 
@@ -72,7 +81,7 @@ describe('Footer Component', () => {
     expect(privacyLinks.length).toBeGreaterThan(0)
     
     const privacyLink = privacyLinks[0].closest('a')
-    expect(privacyLink).toHaveAttribute('href', '/privacy')
+    expect(privacyLink).toHaveAttribute('href', '/legal/privacy-policy.pdf')
   })
 
   it('renders terms of service link', () => {
@@ -81,16 +90,16 @@ describe('Footer Component', () => {
     expect(termsLinks.length).toBeGreaterThan(0)
     
     const termsLink = termsLinks[0].closest('a')
-    expect(termsLink).toHaveAttribute('href', '/terms')
+    expect(termsLink).toHaveAttribute('href', '/legal/terms-of-service.pdf')
   })
 
   it('renders disclaimer link', () => {
     render(<Footer />)
-    const disclaimerLinks = screen.getAllByText('Disclaimer')
+    const disclaimerLinks = screen.getAllByText('Website Disclaimer')
     expect(disclaimerLinks.length).toBeGreaterThan(0)
     
     const disclaimerLink = disclaimerLinks[0].closest('a')
-    expect(disclaimerLink).toHaveAttribute('href', '/disclaimer')
+    expect(disclaimerLink).toHaveAttribute('href', '/legal/website-disclaimer.pdf')
   })
 
   // Social Media Section Tests
@@ -102,19 +111,16 @@ describe('Footer Component', () => {
   it('renders social media icons with proper aria labels', () => {
     render(<Footer />)
     expect(screen.getByLabelText('LinkedIn')).toBeInTheDocument()
-    expect(screen.getByLabelText('Twitter')).toBeInTheDocument()
-    expect(screen.getByLabelText('Facebook')).toBeInTheDocument()
+    expect(screen.getByLabelText('Instagram')).toBeInTheDocument()
   })
 
   it('social media links are present and accessible', () => {
     render(<Footer />)
     const linkedinLink = screen.getByLabelText('LinkedIn')
-    const twitterLink = screen.getByLabelText('Twitter')
-    const facebookLink = screen.getByLabelText('Facebook')
+    const instagramLink = screen.getByLabelText('Instagram')
     
     expect(linkedinLink).toBeInTheDocument()
-    expect(twitterLink).toBeInTheDocument()
-    expect(facebookLink).toBeInTheDocument()
+    expect(instagramLink).toBeInTheDocument()
   })
 
   // Accessibility Tests
@@ -160,7 +166,7 @@ describe('Footer Component', () => {
   it('footer has proper contrast with light text on dark background', () => {
     const { container } = render(<Footer />)
     const footer = container.querySelector('footer')
-    expect(footer).toHaveClass('bg-gray-900', 'text-white')
+    expect(footer).toHaveClass('bg-gradient-to-br', 'from-gray-900', 'text-white')
   })
 
   it('footer links have hover transitions for better UX', () => {
